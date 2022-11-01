@@ -1,8 +1,11 @@
 {
-  "name": "nimap",
+  "name": "studio13u7",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
@@ -20,7 +23,6 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.9.1",
     "mongoose": "^6.6.0",
-    "mongoose-paginate-v2": "^1.7.1",
     "path": "^0.12.7"
   }
 }
