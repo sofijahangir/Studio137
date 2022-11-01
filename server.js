@@ -23,6 +23,14 @@ const port = process.env.PORT || 3000;
 // Database
 mongodb();
 
+// Use views folder for UI
+app.use(express.static(path.join(__dirname, 'views')));
+
+// Home Route
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'index.html'));
+});
+
 app.use('/user', userRoutes);
 app.use('/', productRoutes);
 
