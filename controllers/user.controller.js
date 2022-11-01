@@ -23,13 +23,9 @@ const signup = async (req, res) => {
       password: hashedPassword,
     });
 
-    const token = jwt.sign(
-      { user_id: result._id, email },
-      process.env.TOKEN_KEY,
-      {
-        expiresIn: '2h',
-      },
-    );
+    const token = jwt.sign({ user_id: result._id, email }, 'secret', {
+      expiresIn: '2h',
+    });
 
     // save user token
     result.token = token;
@@ -58,13 +54,9 @@ const login = async (req, res) => {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
 
-    const token = jwt.sign(
-      { user_id: user._id, email },
-      process.env.TOKEN_KEY,
-      {
-        expiresIn: '2h',
-      },
-    );
+    const token = jwt.sign({ user_id: user._id, email }, 'secret', {
+      expiresIn: '2h',
+    });
 
     // save user token
     user.token = token;
